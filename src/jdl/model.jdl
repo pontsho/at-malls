@@ -1,0 +1,72 @@
+/**
+ * The Place entity.
+ * @author Pontsho
+ */
+entity Place {
+    /** fieldName */
+    name String
+    cretedAt Instant
+    cretedBy String
+    location String
+    phoneNumber String
+    icon Blob
+    category String
+    openningTime String
+    closingTime String
+}
+
+/**
+ * The Review entity.
+ * @author Pontsho
+ */
+entity Review {
+    /** fieldName */
+    authorName String
+    authorProfileUrl String
+    authorPhotoUrl String
+    rating Integer
+    text String
+    cretedAt Instant
+
+}
+
+/**
+ * The Category entity.
+ * @author Pontsho
+ */
+entity Category {
+    /** fieldName */
+    type String
+    description String
+}
+
+/**
+ * The Special entity.
+ * @author Pontsho
+ */
+entity Special {
+    /** fieldName */
+    startDate Instant
+    endDate Instant
+    description String
+
+}
+
+/**
+ * The Photos entity.
+ * @author Pontsho
+ */
+entity Photo {
+    /** fieldName */
+    name String
+    url String
+}
+
+/**
+ * One to many relationship.
+ */
+relationship ManyToOne {
+    Photo to Place{photos}
+    Review to Place{reviews}
+    Special to Place{specials}
+}
